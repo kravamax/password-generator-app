@@ -1,0 +1,86 @@
+@use '../../assets/styles/variables' as vars;
+@use '../../assets/styles/functions' as *;
+
+.textField__container {
+  display: flex;
+  align-items: center;
+
+  padding-block: clampFluid(16, 19, 375, 768);
+  padding-inline: clampFluid(16, 32, 375, 768);
+  margin-block-start: clampFluid(16, 32, 375, 768);
+  background-color: vars.$color-main-container-background;
+}
+
+.textField__password {
+  font-size: clampFluid(24, 32, 375, 768);
+  color: vars.$color-password-display-text;
+  line-height: 1.33;
+}
+
+.copiedText {
+  text-transform: uppercase;
+  font-size: pixToRem(16);
+  line-height: 1.25;
+  color: vars.$color-accent;
+  margin-left: auto;
+
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.buttonCopy {
+  margin-inline-start: clampFluid(8, 16, 375, 768);
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover .iconCopy {
+    color: vars.$color-white;
+  }
+
+  &.copied .iconCopy {
+    color: vars.$color-accent;
+  }
+
+  &:active .iconCopy,
+  &:focus-visible .iconCopy {
+    color: vars.$color-accent;
+  }
+}
+
+.buttonText {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0;
+  padding: 0;
+}
+
+.iconCopy {
+  width: pixToRem(21);
+  height: pixToRem(24);
+  color: vars.$color-accent;
+
+  transition: color 0.2s ease-in-out;
+}
+
+@media (min-width: vars.$bp-tablet) {
+  .textField__password {
+    line-height: 1.31;
+  }
+}

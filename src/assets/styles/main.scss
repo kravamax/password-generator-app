@@ -1,0 +1,48 @@
+@use 'fonts';
+@use 'normalize';
+@use 'variables' as vars;
+@use 'functions' as *;
+@use 'mixins' as *;
+@use 'placeholders';
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  padding-block-start: clampFluid(64, 133, 375, 768);
+  padding-block-end: clampFluid(64, 133, 375, 768);
+
+  padding-inline: clampFluid(16, 114, 375, 768);
+  padding-inline: clampFluid(16, 114, 375, 768);
+
+  background-image: vars.$color-gradient-body-background;
+
+  font-family: vars.$font-family-main;
+  font-weight: vars.$font-weight-main;
+  color: white;
+}
+
+.title-text {
+  font-size: clampFluid(16, 24, 375, 768);
+  line-height: 1.25;
+  text-align: center;
+  color: vars.$color-title-text;
+}
+
+.main__container {
+  padding-block-start: clampFluid(16, 24, 375, 768);
+  padding-block-end: clampFluid(16, 41, 375, 768);
+  padding-inline: clampFluid(16, 32, 375, 768);
+
+  margin-block-start: clampFluid(16, 24, 375, 768);
+
+  background-color: vars.$color-main-container-background;
+}
+
+@media (min-width: vars.$bp-tablet) {
+  .title-text {
+    line-height: 1.33;
+  }
+}

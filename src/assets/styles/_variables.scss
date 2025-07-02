@@ -1,0 +1,32 @@
+@use 'fonts';
+@use 'functions' as *;
+
+$bp-mobile: pixToRem(320);
+$bp-tablet: pixToRem(768);
+$bp-desktop: pixToRem(1440);
+
+$color-gradient-body-background: linear-gradient(
+  to right,
+  hsl(248, 17%, 9%),
+  hsl(255, 22%, 4%)
+);
+$color-main-container-background: hsl(248, 10%, 15%);
+$color-strength-container-background: hsl(248, 15%, 11%);
+
+$color-title-text: hsl(251, 9%, 53%);
+$color-password-display-text: hsl(248, 5%, 34%);
+$color-password-display-text-active: hsl(252, 11%, 91%);
+$color-input-labels: hsl(252, 11%, 91%);
+$color-container-indicator-text: hsl(251, 9%, 53%);
+
+$color-strength-too-weak: hsl(0, 91%, 63%);
+$color-strength-weak: hsl(13, 95%, 66%);
+$color-strength-medium: hsl(42, 91%, 68%);
+$color-strength-strong: hsl(127, 100%, 82%);
+
+$color-accent: hsl(127, 100%, 82%);
+$color-button-text: hsl(248, 10%, 15%);
+$color-white: hsl(0, 100%, 100%);
+
+$font-family-main: 'JetBrains Mono', monospace;
+$font-weight-main: 700;
