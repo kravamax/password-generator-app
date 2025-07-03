@@ -1,0 +1,49 @@
+@use '../../assets/styles/functions' as *;
+@use '../../assets/styles/variables' as vars;
+
+.checkbox__item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+
+  appearance: none;
+  display: grid;
+  place-content: center;
+
+  border: 2px solid vars.$color-thumb-range-background;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &:hover {
+    border-color: vars.$color-accent;
+  }
+
+  &:checked {
+    background-color: vars.$color-accent;
+    background-image: url('../../assets/icons/icon-check.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border-color: vars.$color-accent;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  }
+}
+
+.label {
+  padding-inline-start: clampFluid(16, 24, 375, 768);
+  font-size: clampFluid(16, 18, 375, 768);
+  line-height: 1.25;
+  color: vars.$color-input-labels;
+  cursor: pointer;
+}
+
+@media (min-width: vars.$bp-tablet) {
+  .label {
+    line-height: 1.33;
+  }
+}

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import clsx from 'classnames';
 import s from './TextField.module.scss';
-// import iconCopy from '../../assets/icons/icon-copy.svg';
 import IconCheck from '../../assets/icons/icon-copy.svg?react';
 
 const TextField = ({ generatedPassword }) => {

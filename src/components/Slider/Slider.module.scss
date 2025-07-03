@@ -1,0 +1,79 @@
+@use '../../assets/styles/functions' as *;
+@use '../../assets/styles/variables' as vars;
+
+.slider__mediaBlock {
+  display: flex;
+  align-items: center;
+}
+
+.slider__label {
+  font-size: clampFluid(16, 18, 375, 768);
+  line-height: 1.25;
+  color: vars.$color-input-labels;
+}
+
+.slider__value {
+  margin-inline-start: auto;
+  margin-inline-end: clampFluid(8, 0, 375, 768);
+
+  font-size: clampFluid(24, 32, 375, 768);
+  line-height: 1.33;
+  text-align: right;
+  color: vars.$color-accent;
+}
+
+.input__wrapper {
+  margin: 0;
+  margin-block-start: clampFluid(18, 26, 375, 768);
+  display: flex;
+  background-color: vars.$color-input-range-background;
+}
+
+.slider__inputRange {
+  margin: 0;
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    vars.$color-accent var(--progress),
+    vars.$color-input-range-background var(--progress)
+  );
+  border-radius: 0;
+  outline: none;
+  transition: background 0.3s ease;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: vars.$color-thumb-range-background;
+    border: 2px solid vars.$color-thumb-range-background;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: -2px; // (thumb height - track height)/2
+  }
+
+  &::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: vars.$color-thumb-range-background;
+    border: 2px solid vars.$color-accent;
+    cursor: pointer;
+  }
+
+  &:hover::-webkit-slider-thumb {
+    border: 2px solid vars.$color-accent;
+    background-color: vars.$color-input-range-background;
+  }
+}
+
+@media (min-width: vars.$bp-tablet) {
+  .slider__label {
+    line-height: 1.31;
+  }
+}

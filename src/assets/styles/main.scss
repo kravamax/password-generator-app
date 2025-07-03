@@ -41,6 +41,14 @@ body {
   background-color: vars.$color-main-container-background;
 }
 
+.checkbox__list {
+  margin-block-start: pixToRem(32);
+
+  display: flex;
+  flex-direction: column;
+  gap: pixToRem(16);
+}
+
 @media (min-width: vars.$bp-tablet) {
   .title-text {
     line-height: 1.33;
