@@ -1,0 +1,75 @@
+@use '../../assets/styles/functions' as *;
+@use '../../assets/styles/variables' as vars;
+
+.strength__container {
+  margin-block-start: pixToRem(32);
+  padding-block: clampFluid(14, 20, 375, 768);
+  padding-inline: clampFluid(16.5, 31.75, 375, 768);
+  display: flex;
+
+  background-color: vars.$color-strength-container-background;
+}
+
+.strength__defaultText {
+  padding-block: pixToRem(4);
+
+  font-size: clampFluid(16, 18, 375, 768);
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: vars.$color-container-indicator-text;
+}
+
+.strength__indicatorText {
+  margin-inline-start: auto;
+  margin-inline-end: pixToRem(16);
+  //   padding-block: pixToRem(2);
+
+  text-transform: uppercase;
+
+  font-size: clampFluid(18, 24, 375, 768);
+  line-height: 1.33;
+  color: vars.$color-indicator-text;
+}
+
+.indicators__block {
+  display: flex;
+  gap: pixToRem(8);
+}
+
+.indicator__empty {
+  height: 100%;
+  width: 10px;
+  border: 2px solid vars.$color-indicator-text;
+  background-color: transparent;
+}
+
+.indicator__tooWeak {
+  height: 100%;
+  width: 10px;
+  border: 2px solid vars.$color-strength-too-weak;
+  background-color: vars.$color-strength-too-weak;
+}
+.indicator__weak {
+  height: 100%;
+  width: 10px;
+  border: 2px solid vars.$color-strength-weak;
+  background-color: vars.$color-strength-weak;
+}
+.indicator__medium {
+  height: 100%;
+  width: 10px;
+  border: 2px solid vars.$color-strength-medium;
+  background-color: vars.$color-strength-medium;
+}
+.indicator__strong {
+  height: 100%;
+  width: 10px;
+  border: 2px solid vars.$color-strength-strong;
+  background-color: vars.$color-strength-strong;
+}
+
+@media (min-width: vars.$bp-tablet) {
+  .strength__defaultText {
+    line-height: 1.33;
+  }
+}

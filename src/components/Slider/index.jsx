@@ -1,18 +1,16 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import s from './Slider.module.scss';
 
-const Slider = () => {
-  const [sliderValue, setSliderValue] = useState(0);
+const Slider = ({ sliderValue, onSliderChange }) => {
+  //   const [sliderValue, setSliderValue] = useState(0);
 
   const changeSliderValue = (e) => {
     const value = +e.target.value;
-    setSliderValue(value);
-    console.log(e.target.value);
+
+    onSliderChange(value);
 
     const progress = `${value * 5 - 0.05}%`;
     e.target.style.setProperty('--progress', progress);
-    console.log('value', value);
-    console.log('progress', progress);
   };
 
   return (

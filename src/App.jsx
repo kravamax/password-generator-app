@@ -3,10 +3,25 @@ import './assets/styles/main.scss';
 import TextField from './components/TextField/ index';
 import Slider from './components/Slider';
 import Checkbox from './components/Checkbox';
+import Strength from './components/Strength';
 
 function App() {
   const [generatedPassword, setGeneratedPassword] = useState('P4$5W0rD!');
-  const [checkboxObject, setCheckboxObject] = useState({});
+  const [checkboxObject, setCheckboxObject] = useState({
+    uppercase: false,
+    lowercase: false,
+    numbers: false,
+    symbols: false,
+  });
+  const [passwordLength, setPasswordLenth] = useState(0);
+
+  const handleCheckboxChange = (name, checked) => {
+    setCheckboxObject((prev) => ({ ...prev, [name]: checked }));
+  };
+
+  const countTrueCheckbox = Object.values(checkboxObject).filter(
+    (item) => item === true
+  ).length;
 
   return (
     <article>
@@ -14,28 +29,30 @@ function App() {
 
       <TextField generatedPassword={generatedPassword} />
       <div className="main__container">
-        <Slider />
+        <Slider
+          sliderValue={passwordLength}
+          onSliderChange={setPasswordLenth}
+        />
         <ul className="checkbox__list">
-          <Checkbox
-            checkboxOptionText={'Include Uppercase Letters'}
-            checkboxOptionName={'uppercase'}
-          />
-          <Checkbox
-            checkboxOptionText={'Include Lowercase Letters'}
-            checkboxOptionName={'lowercase'}
-          />
-          <Checkbox
-            checkboxOptionText={'Include Numbers'}
-            checkboxOptionName={'numbers'}
-          />
-          <Checkbox
-            checkboxOptionText={'Include Symbols'}
-            checkboxOptionName={'symbols'}
-          />
+          {[
+            'Include Uppercase Letters',
+            'Include Lowercase Letters',
+            'Include Numbers',
+            'Include Symbols',
+          ].map((name) => (
+            <Checkbox
+              key={name.split(' ')[1].toLowerCase()}
+              checkboxOptionText={name}
+              checkboxOptionName={name.split(' ')[1].toLowerCase()}
+              isChecked={checkboxObject[name.split(' ')[1].toLowerCase()]}
+              onChange={handleCheckboxChange}
+            />
+          ))}
         </ul>
+        <Strength checkboxCount={countTrueCheckbox} />
       </div>
 
-      <p>Strength Generate</p>
+      <p>Generate</p>
     </article>
   );
 }
