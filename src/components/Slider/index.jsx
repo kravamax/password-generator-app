@@ -2,8 +2,6 @@
 import s from './Slider.module.scss';
 
 const Slider = ({ sliderValue, onSliderChange }) => {
-  //   const [sliderValue, setSliderValue] = useState(0);
-
   const changeSliderValue = (e) => {
     const value = +e.target.value;
 

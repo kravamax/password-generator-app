@@ -1,0 +1,58 @@
+@use '../../assets/styles/functions' as *;
+@use '../../assets/styles/variables' as vars;
+
+.button {
+  padding: 0;
+
+  width: 100%;
+  margin-block-start: clampFluid(16, 32, 375, 768);
+  padding-block: clampFluid(16, 20.5, 375, 768);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid vars.$color-accent;
+  background-color: vars.$color-accent;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: transparent;
+  }
+  &:hover .buttonText {
+    color: vars.$color-accent;
+  }
+  &:hover .iconArrow {
+    color: vars.$color-accent;
+  }
+}
+
+.buttonText {
+  font-family: vars.$font-family-main;
+  font-weight: vars.$font-weight-main;
+  font-size: clampFluid(16, 18, 375, 768);
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: vars.$color-button-text;
+
+  transition: color 0.2s ease-in-out;
+}
+
+.iconArrow {
+  margin-inline-start: clampFluid(16, 24, 375, 768);
+
+  height: 12px;
+  width: 12px;
+
+  color: vars.$color-button-text;
+
+  transition: color 0.2s ease-in-out;
+}
+
+@media (min-width: vars.$bp-tablet) {
+  .button {
+    line-height: 1.33;
+  }
+}

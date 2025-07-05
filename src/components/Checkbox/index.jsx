@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import s from './Checkbox.module.scss';
 
 const Checkbox = ({

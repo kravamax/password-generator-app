@@ -4,16 +4,17 @@ import TextField from './components/TextField/ index';
 import Slider from './components/Slider';
 import Checkbox from './components/Checkbox';
 import Strength from './components/Strength';
+import Button from './components/Button';
 
 function App() {
   const [generatedPassword, setGeneratedPassword] = useState('P4$5W0rD!');
+  const [passwordLength, setPasswordLenth] = useState(0);
   const [checkboxObject, setCheckboxObject] = useState({
     uppercase: false,
     lowercase: false,
     numbers: false,
     symbols: false,
   });
-  const [passwordLength, setPasswordLenth] = useState(0);
 
   const handleCheckboxChange = (name, checked) => {
     setCheckboxObject((prev) => ({ ...prev, [name]: checked }));
@@ -50,9 +51,14 @@ function App() {
           ))}
         </ul>
         <Strength checkboxCount={countTrueCheckbox} />
+        <Button
+          buttonText={'Generate'}
+          sliderValue={passwordLength}
+          checkboxObject={checkboxObject}
+          // generatedPassword={generatedPassword}
+          // onClick={setGeneratedPassword}
+        />
       </div>
-
-      <p>Generate</p>
     </article>
   );
 }

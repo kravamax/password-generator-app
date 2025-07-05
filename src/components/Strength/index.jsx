@@ -51,15 +51,10 @@ const Strength = ({ checkboxCount }) => {
   return (
     <div className={s.strength__container}>
       <span className={s.strength__defaultText}>Strength</span>
-
       <span className={s.strength__indicatorText}>
         {indicatorText(checkboxCount)}
       </span>
       <div data-block="indicators" className={s.indicators__block}>
-        {/* <span data-block="indicator" className={s.indicator__empty}></span>
-        <span data-block="indicator" className={s.indicator__empty}></span>
-        <span data-block="indicator" className={s.indicator__empty}></span>
-        <span data-block="indicator" className={s.indicator__empty}></span> */}
         {renderIndicators()}
       </div>
     </div>
