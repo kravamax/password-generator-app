@@ -56,8 +56,6 @@ function App() {
           sliderValue={passwordLength}
           checkboxObject={checkboxObject}
           setGeneratedPassword={setGeneratedPassword}
-          // generatedPassword={generatedPassword}
-          // onClick={setGeneratedPassword}
         />
       </div>
     </article>
