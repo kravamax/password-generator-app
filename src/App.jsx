@@ -55,6 +55,7 @@ function App() {
           buttonText={'Generate'}
           sliderValue={passwordLength}
           checkboxObject={checkboxObject}
+          setGeneratedPassword={setGeneratedPassword}
           // generatedPassword={generatedPassword}
           // onClick={setGeneratedPassword}
         />

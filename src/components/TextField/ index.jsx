@@ -11,7 +11,6 @@ const TextField = ({ generatedPassword }) => {
 
     navigator.clipboard.writeText(generatedPassword).then(() => {
       setCopied(true);
-      console.log('password copied to clipboard');
 
       setTimeout(() => setCopied(false), 2000);
     });
@@ -19,7 +18,15 @@ const TextField = ({ generatedPassword }) => {
 
   return (
     <div className={s.textField__container}>
-      <span className={s.textField__password}>{generatedPassword}</span>
+      <span
+        className={
+          generatedPassword === 'P4$5W0rD!'
+            ? s.textField__password
+            : s.textField__passwordActive
+        }
+      >
+        {generatedPassword}
+      </span>
 
       <span className={clsx(s.copiedText, { [s.hidden]: !copied })}>
         Copied
@@ -31,7 +38,6 @@ const TextField = ({ generatedPassword }) => {
       >
         <span className={s.buttonText}>Icon copy</span>
         <IconCheck className={s.iconCopy} />
-        {/* <img className={s.iconCopy} src={iconCopy} alt="icon-copy" /> */}
       </button>
     </div>
   );

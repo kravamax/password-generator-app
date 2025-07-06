@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import s from './Slider.module.scss';
 
 const Slider = ({ sliderValue, onSliderChange }) => {

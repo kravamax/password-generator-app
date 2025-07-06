@@ -13,31 +13,57 @@ const charactersData = {
   symbols: SYMBOLS,
 };
 
-const Button = ({ buttonText, sliderValue, checkboxObject }) => {
+const Button = ({
+  buttonText,
+  sliderValue,
+  checkboxObject,
+  setGeneratedPassword,
+}) => {
   const generatePassword = () => {
+    if (sliderValue === 0) {
+      alert('Select character length!');
+      return;
+    }
+
     const trueCheckboxesArr = Object.keys(checkboxObject).filter(
       (key) => checkboxObject[key] === true
     );
 
-    const includesCharacters = trueCheckboxesArr.flatMap(
-      (key) => charactersData[key]
+    if (trueCheckboxesArr.length === 0) {
+      alert('Please select at least one option!');
+      return;
+    }
+
+    const getRandom = (array) =>
+      array[Math.floor(Math.random() * array.length)];
+
+    const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
+    let limitedChackboxesArr = trueCheckboxesArr;
+
+    if (sliderValue < trueCheckboxesArr.length) {
+      limitedChackboxesArr = shuffle(trueCheckboxesArr).slice(0, sliderValue);
+    }
+
+    console.log('trueCheckboxesArr', limitedChackboxesArr);
+
+    const guaranteedChars = limitedChackboxesArr.map((key) =>
+      getRandom(charactersData[key])
     );
 
-    function getRandom(includesCharacters) {
-      const randomNum = (
-        Math.random() * (includesCharacters.length - 1 + 1) +
-        1
-      ).toFixed(0);
-      return includesCharacters[randomNum];
+    const remainingLength = sliderValue - guaranteedChars.length;
+
+    const allChars = limitedChackboxesArr.flatMap((key) => charactersData[key]);
+
+    const password = [...guaranteedChars];
+
+    for (let i = 1; i <= remainingLength; i += 1) {
+      password.push(getRandom(allChars));
     }
 
-    const password = [];
+    const shuffledPassword = password.sort(() => Math.random() - 0.5).join('');
 
-    for (let i = 1; i <= sliderValue; i += 1) {
-      password.push(getRandom(includesCharacters));
-    }
-
-    console.log('password', password.join(''));
+    setGeneratedPassword(shuffledPassword);
   };
 
   return (

@@ -11,6 +11,7 @@ html {
 
 body {
   min-height: 100vh;
+  place-content: center;
   padding-block-start: clampFluid(64, 133, 375, 768);
   padding-block-end: clampFluid(64, 133, 375, 768);
 
@@ -32,6 +33,7 @@ body {
 }
 
 .main__container {
+  margin-inline: auto;
   padding-block-start: clampFluid(16, 24, 375, 768);
   padding-block-end: clampFluid(16, 41, 375, 768);
   padding-inline: clampFluid(16, 32, 375, 768);
@@ -50,6 +52,10 @@ body {
 }
 
 @media (min-width: vars.$bp-tablet) {
+  .main__container {
+    max-width: pixToRem(540);
+  }
+
   .title-text {
     line-height: 1.33;
   }

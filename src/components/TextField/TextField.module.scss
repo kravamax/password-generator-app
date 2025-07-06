@@ -2,6 +2,8 @@
 @use '../../assets/styles/functions' as *;
 
 .textField__container {
+  margin-inline: auto;
+
   display: flex;
   align-items: center;
 
@@ -14,6 +16,12 @@
 .textField__password {
   font-size: clampFluid(24, 32, 375, 768);
   color: vars.$color-password-display-text;
+  line-height: 1.33;
+}
+
+.textField__passwordActive {
+  font-size: clampFluid(24, 32, 375, 768);
+  color: vars.$color-password-display-text-active;
   line-height: 1.33;
 }
 
@@ -80,6 +88,9 @@
 }
 
 @media (min-width: vars.$bp-tablet) {
+  .textField__container {
+    max-width: pixToRem(540);
+  }
   .textField__password {
     line-height: 1.31;
   }
